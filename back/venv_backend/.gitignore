@@ -47,3 +47,8 @@ build/
 # */migrations/*_auto_*.py
 
 # Cualquier otro archivo temporal o específico de tu máquina
+
+/Scripts
+/Lib
+/Include
+/pyvenv.cfg
