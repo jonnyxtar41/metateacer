@@ -1,0 +1,49 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# Entornos Virtuales de Python
+/back/venv_backend/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de SQLite (si decides usarlo para desarrollo local)
+*.sqlite3
+db.sqlite3
+
+# Archivos de configuración sensibles (ejemplo)
+# Si tienes un archivo .env para variables de entorno, añádelo:
+# .env
+
+# Archivos de IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Cobertura de tests
+.coverage
+coverage.xml
+htmlcov/
+
+# Distribución de Python / build
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Archivos específicos de Django
+# (A menudo las migraciones SÍ se suben, pero si tienes alguna razón
+# para ignorar archivos de migraciones específicos, puedes hacerlo aquí)
+# Por ejemplo, si quisieras ignorar todas las migraciones de una app (NO recomendado usualmente):
+# */migrations/*_auto_*.py
+
+# Cualquier otro archivo temporal o específico de tu máquina
