@@ -1,0 +1,17 @@
+
+
+/* src/index.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Asegura que el cuerpo ocupe todo el ancho */
+  box-sizing: border-box;
+}
+
+#root { /* El div donde se monta tu app React */
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}

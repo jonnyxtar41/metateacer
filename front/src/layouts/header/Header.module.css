@@ -1,0 +1,28 @@
+
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100px;
+    background-color: rgb(231, 190, 190);
+
+}
+
+
+.topAppBarBelow {
+    
+    /* width: 100%; Por defecto, un hijo de flex column estirará su ancho, o puedes poner width: 100% */
+    display: flex;
+    padding: 0rem 1rem 0rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    overflow: auto;
+    flex-grow: 1; /* 4. ¡LA MAGIA! Esta barra crecerá para ocupar el espacio vertical restante en .header */
+
+
+
+}
+

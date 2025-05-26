@@ -1,0 +1,22 @@
+
+.signupBox {
+    background-color: rgb(231, 229, 230); 
+    padding: 2rem;
+    width: 50%;
+    height: 50rem;
+
+    box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.signupBox h1 {
+    padding-bottom: 2rem;
+    font-size: 3rem;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  /* Agrega más estilos según sea necesario */
+}

@@ -1,0 +1,45 @@
+/* Estilos Base Comunes para los botones del menú */
+.btnMenuBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 4px solid white;
+  border-radius: 20px;
+  padding: 8px 25px;
+  min-width: 100px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  /* Transición para suavizar los cambios */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.3);
+  margin: 0 6px;
+  text-decoration: none;
+}
+
+/* --- Estilo Primario (Naranja) --- */
+.primary {
+  background-color: #f9a825; /* Naranja */
+  color: #161718;           /* Texto oscuro */
+  border-color: white;      /* Borde blanco */
+}
+/* Hover para el botón primario */
+.primary:hover {
+  background-color: #161718; /* Naranja más oscuro */
+  color: #f9a825;           /* Texto un poco más oscuro si es necesario */
+  border-color: #f0f0f0;    /* Borde ligeramente grisáceo (opcional) */
+}
+
+/* --- Estilo Activo (Negro) --- */
+.active {
+  background-color: #111213; /* Negro */
+  color: #ffffff;           /* Texto blanco */
+  border-color: white;      /* Borde blanco (o podría ser naranja #f9a825 para destacar más?) */
+}
+/* Hover para el botón activo */
+.active:hover {
+  background-color: #444444; /* Gris más claro que #333 para que se note más */
+  color: #ffffff;           /* Mantenemos texto blanco */
+  border-color: #f9a825;    /* Cambiamos borde a naranja en hover para mayor feedback */
+}

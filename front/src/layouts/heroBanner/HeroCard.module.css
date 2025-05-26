@@ -1,0 +1,82 @@
+
+
+/* En tu archivo HeroCard.module.css */
+.heroCard {
+    /* 1. Fondo MUY TRANSLÚCIDO y Color Base: */
+    background-color: rgba(15, 15, 15, 0.582); /* Negro/gris muy oscuro, con 35% opacidad.
+                                                Puedes probar opacidades entre 0.2 (más transparente)
+                                                y 0.6 (más opaco y tintado). */
+
+    /* 2. DESENFOQUE MUY INTENSO para el contenido detrás: */
+    backdrop-filter: blur(25px); /* ¡VALOR ALTO! Prueba 25px, 35px, 45px.     Cuanto mayor el valor, más irreconocible será el fondo. */
+    -webkit-backdrop-filter: blur(25px); /* Para compatibilidad con Safari */
+
+    color: white; /* Texto blanco para que contraste con el fondo oscuro y translúcido del card */
+    font-family: 'Press Start 2P', sans-serif;
+    display: flex;
+    width: 30rem; /* O el ancho que desees */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem; /* Los bordes redondeados se ven bien con este efecto */
+
+    /* 3. Borde Sutil (Opcional, pero recomendado para definir el "vidrio"): */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde blanco muy sutil y translúcido */
+
+    box-shadow:
+        0px 5px 15px rgba(0, 0, 0, 0.2), /* Sombra principal un poco más suave y difusa */
+        0px 2px 5px rgba(0, 0, 0, 0.15); /* Sombra secundaria más sutil para dar profundidad cerca de los bordes */
+
+
+/* Transición suave para el efecto de elevación en hover */
+
+    /* 5. Transición (Opcional, para cambios sutiles en hover si decides mantenerlos): */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.heroCard:hover {
+    /* Puedes mantener un efecto sutil en hover o eliminarlo si el vidrio es el único foco */
+    box-shadow:
+        0px 12px 25px rgba(0, 0, 0, 0.25), /* Sombra principal más grande y un poco más oscura */
+        0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra secundaria también se realza */
+    border-color: rgba(255, 255, 255, 0.18); /* Hacer el borde un poco más visible en hover */
+    transform: translateY(-8px); 
+     
+    transform: translateY(-4px); 
+}
+
+
+
+.cardTitle {
+
+    color: #FFDB58;
+    line-height: 1.5em;
+    margin: 0;
+    
+    
+}
+
+.cardSubtitle {
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+    color: white;
+}
+
+.cardBoton{
+    padding: 1em;
+    background-color: #FFDB58;
+    font-family: 'Press Start 2P', sans-serif;
+    width: auto;
+    border: none;
+    border-radius: 7em;
+    cursor: pointer;
+
+    
+}
+.cardBoton:hover {
+    background-color: #b69c41;
+}
+
+

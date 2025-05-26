@@ -1,0 +1,14 @@
+
+.logoImage {
+    display:inline-block;
+    text-decoration: none;
+    width: 7rem;
+
+}
+
+.logoLink {
+    height: 50px;
+    width: auto;
+    display: block;
+
+}

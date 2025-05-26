@@ -1,0 +1,12 @@
+.loginPageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupar toda la altura de la pantalla */
+    background-color: #08325c; /* Un color de fondo suave para la página */
+    background: linear-gradient(135deg, rgb(85, 2, 53) 0%, rgba(85, 2, 53) 25%, rgb(0, 41, 90) 75%, rgb(3, 34, 73) 80%, rgba(0, 1, 3, 0.993) 100%);
+    padding: 20px; /* Espacio alrededor del contenido */
+ 
+}
+

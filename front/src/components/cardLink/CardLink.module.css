@@ -1,0 +1,55 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start;  Alinea los elementos a la izquierda por defecto si el ícono está arriba */
+    /* Si el ícono está a un lado del título/descripción, necesitaríamos un layout más complejo */
+    text-align: left; /* El texto dentro de la tarjeta está alineado a la izquierda */
+    
+    background-color: #222; /* Un color de fondo oscuro, similar a la imagen */
+    color: white; /* Texto blanco */
+    font-family: 'Press Start 2P', sans-serif; /* La fuente pixelada que usas */
+    
+    padding: 1.5rem;
+    border-radius: 0.75rem; /* Bordes redondeados como en la imagen */
+    
+    width: 18rem; /* Ancho aproximado, ajusta según sea necesario */
+    min-height: 10rem; /* Altura mínima para asegurar consistencia si las descripciones varían */
+    
+    text-decoration: none; /* Quita el subrayado de los enlaces <a> */
+    
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Una sombra sutil para dar profundidad */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto de elevación sutil en hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+    width: 2.5rem; /* Tamaño del ícono, ajusta según tus íconos */
+    height: 2.5rem;
+    margin-bottom: 0.75rem; /* Espacio entre el ícono y el título */
+    /* Si el ícono debe estar a la derecha del título "Dados", necesitaríamos cambiar el layout.
+       Por ahora, lo pongo arriba, como si fuera un encabezado opcional. */
+    /* Para el layout de la imagen "Dados":
+       Podríamos tener un div contenedor para .icon y .title y usar flex en él.
+       O posicionar el icono absolutamente respecto a un .titleContainer.
+       Vamos a mantenerlo simple por ahora: icono arriba.
+    */
+}
+
+.title {
+    font-size: 1.5em; /* Tamaño del título */
+    margin: 0 0 0.5em 0; /* Quita margen superior, añade margen inferior */
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 0.9em; /* Tamaño de la descripción */
+    line-height: 1.4;
+    margin: 0;
+    /* Para el quiebre de línea como en "Apuesta y gira la ruleta." podemos confiar en el ancho del card,
+       o podríamos necesitar ajustar el width del p o usar <br /> en el string de descripción
+       si queremos un control exacto (aunque esto último es menos flexible).*/
+}

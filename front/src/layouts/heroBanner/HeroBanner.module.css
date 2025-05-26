@@ -1,0 +1,57 @@
+
+.heroBanner {
+    position: relative;
+    display: flex;
+    height: 25rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.heroImage {
+    position: absolute;
+    width: 60rem;
+    height: 25rem;
+    z-index: 0;
+    overflow: hidden;
+    
+    right: 0%;
+}
+
+.heroCard {
+    position: absolute;
+    z-index: 1;
+    left: 5%;
+
+    
+}
+
+
+.divPattern {
+    position: absolute;
+    background: linear-gradient(to right, #bcbcc0, #4a0e7a); /* Degradado azul/morado similar */
+    overflow: hidden;
+    /* Opcional: Añade otras propiedades para darle tamaño al div si no lo tiene */
+    width: 100%; 
+    height: 100%; 
+    z-index: -1;
+    left: 0%;
+
+}
+
+.divPattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px; /* Ajusta para posicionar la onda */
+    width: 30%; /* Ajusta el ancho de la onda */
+    height: 60%; /* Ajusta la altura de la onda */
+    background: linear-gradient(to bottom right, #4116a5, #2e0020); /* Degradado naranja/amarillo */
+    /* Creando la forma ondulada con border-radius */
+    /* Experimenta con estos valores para conseguir la forma deseada */
+    border-radius: 30% 70% 60% 40% / 60% 30% 70% 40%;
+    transform: rotate(-10deg); /* Rota ligeramente la onda */
+    transform-origin: 0% 100%; /* Punto de rotación */
+}   

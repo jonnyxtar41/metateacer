@@ -1,0 +1,20 @@
+
+
+
+
+.topBar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191919; 
+  color: white;
+  padding: 0.3125rem 1.25rem; /* Ajusta el padding */
+  font-size: 0.9rem;
+  height: 1.8rem; /* Altura fija según tu imagen */
+  box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.3);
+  width: auto;
+  position: relative;
+  z-index: 1;
+
+}

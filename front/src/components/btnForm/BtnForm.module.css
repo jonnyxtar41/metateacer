@@ -1,0 +1,90 @@
+
+/* Container for the buttons */
+.buttonContainer {
+  display: flex; /* Arrange buttons in a row */
+  margin: 1rem 1rem 1rem 1rem;
+  /* Add padding or margin as needed */
+}
+
+/* Base button styles */
+.button {
+  padding: 10px 20px;
+  margin: 0 5px; /* Space between buttons */
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Login button specific styles */
+.loginButton {
+  background-color: #007bff; /* Example blue color */
+  color: white;
+}
+
+.loginButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Sign In button specific styles */
+.signinButton {
+  background-color: #28a745; /* Example green color */
+  color: white;
+}
+
+.signinButton:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Optional: Add active state styles */
+.button:active {
+  opacity: 0.8;
+}
+
+
+
+/* ---------------------------------------------------------*/
+
+
+/* Container for the buttons */
+.button-container {
+  display: flex; /* Arrange buttons in a row */
+  /* Add padding or margin as needed */
+}
+
+/* Base button styles */
+.button {
+  padding: 10px 20px;
+  margin: 0 5px; /* Space between buttons */
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Login button specific styles */
+.login-button {
+  background-color: #007bff; /* Example blue color */
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Sign In button specific styles */
+.signin-button {
+  background-color: #28a745; /* Example green color */
+  color: white;
+}
+
+.signin-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Optional: Add active state styles */
+.button:active {
+  opacity: 0.8;
+}

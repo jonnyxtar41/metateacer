@@ -1,0 +1,92 @@
+
+.divCampo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    
+   
+}
+
+/* Estilos para el label */
+.formLabel {
+    
+ 
+  position: absolute;
+  top: 0.75rem; /* Posición inicial vertical (alineado con el padding del input) */
+  left: 0.5rem; /* Posición inicial horizontal (alineado con el padding del input) */
+  padding: 0 0.25rem; /* Padding horizontal, útil si el fondo no es transparente */
+  font-size: 1rem; /* Tamaño de fuente inicial */
+  color: #6c757d; /* Color del label */
+  pointer-events: none; /* Permite clics a través del label hacia el input */
+  transition: all 0.15s ease-in-out; /* Transición para el movimiento y tamaño */
+  background-color: transparent; /* Asegura fondo transparente inicialmente */
+
+}
+
+.formInput {
+
+  display: block; /* Asegura que ocupe el ancho disponible */
+  width: 100%;
+  padding: 0.75rem 0.5rem; /* Padding interno del input */
+  font-size: 1rem; /* Tamaño de fuente */
+  line-height: 1.5;
+  color: #495057; /* Color del texto */
+  background-color: transparent; /* Fondo transparente para ver el label debajo */
+  background-clip: padding-box;
+  border: 1px solid #ced4da; /* Borde inicial */
+  border-radius: 0.25rem; /* Bordes redondeados */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transición suave */
+  outline: none; /* Remueve el outline por defecto al enfocar */
+}
+
+/* Ocultar el placeholder real */
+.formInput::placeholder {
+  color: transparent;
+}
+
+
+/* Estilos del label cuando el input está enfocado O tiene contenido */
+/* Usamos :not(:placeholder-shown) para detectar si tiene contenido (el placeholder no se muestra) */
+.formInput:focus + .formLabel,
+.formInput:not(:placeholder-shown) + .formLabel {
+  top: -1.25rem; /* Mueve el label hacia arriba, fuera del input */
+  left: 0.5rem; /* Ajusta posición horizontal si es necesario */
+  font-size: 0.75rem; /* Reduce el tamaño de fuente */
+  color: #007bff; /* Cambia el color (ejemplo: azul primario) */
+  /*background-color: white; /* Fondo blanco para cubrir el borde si el label lo cruza */
+  padding: 0 0.25rem; /* Ajusta padding si el fondo es blanco */
+}
+
+
+/* Estilos del input cuando está enfocado */
+.formInput:focus {
+  border-color: #007bff; /* Cambia el color del borde al enfocar */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Añade un ligero box-shadow al enfocar */
+}
+
+/* Estilos para el input con contenido (opcional, si quieres diferente borde, etc.) */
+.formInput:not(:placeholder-shown) {
+    /* Estilos adicionales para el input cuando tiene contenido */
+    border-color: #ced4da; /* Mantener borde original o cambiarlo */
+}
+
+.passwordIconContainer {
+    position: absolute;
+    /* Posiciona el icono en la esquina derecha del input */
+    right: 10px; /* Ajusta la distancia desde la derecha */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrado vertical */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    z-index: 2; /* Asegura que el icono esté por encima del input */
+    display: flex; /* Útil si el icono es un SVG o tiene un tamaño específico */
+    align-items: center;
+    justify-content: center;
+    width: 24px; /* Define un tamaño para el área clickeable */
+    height: 24px; /* Define un tamaño para el área clickeable */
+}
+
+.icon {
+    font-size: 1.2em; /* Ajusta el tamaño del emoji o fuente */
+    color: #555; /* Ejemplo de color */
+}

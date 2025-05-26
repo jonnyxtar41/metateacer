@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'Press Start 2P'; /* El nombre que usarás en font-family */
+  src: url('./PressStart2P-Regular.ttf') format('truetype');
+  font-weight: 400; /* Press Start 2P es peso Regular, que corresponde a 400 */
+  font-style: normal; /* No tiene estilo itálico */
+  font-display: swap; /* Mejora el rendimiento */
+}

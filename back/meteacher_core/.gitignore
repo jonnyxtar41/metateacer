@@ -1,0 +1,46 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+
+
+# Ignorar subdirectorios específicos del entorno virtual
+/Include
+/Lib
+/Scripts
+
+# Ignorar el archivo de configuración del entorno virtual
+/pyvenv.cfg
+
+# También es buena idea ignorar otros archivos comunes de venv si existen
+# como .Python (en algunos sistemas)
+/.Python
+
+# --- NO AÑADIR venv/MyScripts/ AQUÍ ---
+# Al no añadir venv/MyScripts/ a las reglas de ignorar, Git
+# intentará rastrearlo por defecto, siempre y cuando la carpeta venv/
+# en sí misma no esté siendo ignorada por una regla más general
+# en este mismo archivo o en un .gitignore de un directorio superior.
+
+# Otros archivos y carpetas comunes a ignorar en un proyecto Python/Django
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Si usas SQLite para desarrollo
+*.sqlite3
+db.sqlite3
+
+# Archivos de entorno (para variables de configuración sensibles)
+.env
+*.env
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de IDE (ajusta según tu editor)
+.vscode/
+.idea/
