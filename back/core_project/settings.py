@@ -82,6 +82,19 @@ DATABASES = {
     }
 }
 
+# PARA USAR CON POSGRESQL
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql', # Cambia el motor
+#         'NAME': 'nombre_de_tu_base_de_datos_postgres',   # El nombre de la BD que creaste
+#         'USER': 'tu_usuario_postgres',              # Tu usuario de PostgreSQL
+#         'PASSWORD': 'tu_contraseña_postgres',        # Tu contraseña
+#         'HOST': 'localhost',                          # O la dirección de tu servidor de BD
+#         'PORT': '5432',                               # Puerto por defecto de PostgreSQL
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

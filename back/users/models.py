@@ -51,7 +51,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # --- Campos de la tabla Usuario ---
 
     email = models.EmailField(
-        -('dirección de correo electronico'),
+        _('dirección de correo electronico'),
         unique= True,  # Asegura que no haya dos usuarios con el mismo email
         help_text=_('Requerido. Dirección de correo electrónico única.')
     )
