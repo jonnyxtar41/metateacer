@@ -33,6 +33,7 @@ htmlcov/
 *.swo
 
 media/
+Credenciales.txt
 
 
 
@@ -52,6 +53,7 @@ front/!.env.example
 front/*.log
 # Si TypeScript genera estos archivos
 front/*.tsbuildinfo 
+
 
 
 
