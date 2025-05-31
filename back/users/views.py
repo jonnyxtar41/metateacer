@@ -3,11 +3,11 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from .models import CustomUser
 # Create your views here.
-from serializers import UserSerializer, UserRegistrationSerializer
+from .serializers import UserSerializer, UserRegistrationSerializer
 
 
 
-class UserListCreateView(generics):
+class UserListCreateView(generics.ListCreateAPIView):
     """
     Vista para listar (GET) y crear (POST) usuarios.
     """

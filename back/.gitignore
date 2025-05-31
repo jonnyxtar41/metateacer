@@ -1,0 +1,45 @@
+# back/.gitignore
+
+# Entorno Virtual
+# Si tu entorno virtual (ej. meteacher_core, venv, .venv, env) está dentro de esta carpeta 'back/'
+# añade su nombre aquí. Por ejemplo, si se llama 'meteacher_core':
+meteacher_core/
+venv/
+.venv/
+env/
+ENV/
+
+# Archivos de Bytecode de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Base de datos de SQLite (común para desarrollo)
+db.sqlite3 #
+
+# Archivos de log
+*.log
+logs/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de IDEs (ejemplos, ajusta según tu editor)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Django static files (si decides no versionarlos y generarlos en despliegue)
+# Por ahora, puedes mantenerlo comentado o añadirlo si ya sabes que no los versionarás.
+#staticfiles/
+
+# Archivos de media (archivos subidos por usuarios, generalmente no se versionan)
+# media/
+
+# Archivos de cobertura de tests (si los generas)
+.coverage
+coverage.xml
+htmlcov/
