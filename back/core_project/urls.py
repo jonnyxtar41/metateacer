@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken import views as authtoken_views
 
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
 
     # Así, la URL completa para tu UserListCreateView será '/api/users/'.
     path('api/', include('users.urls')),
+    path('api/auth/token/', authtoken_views.obtail_auth_token, name='api_auth_token')
 ]

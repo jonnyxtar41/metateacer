@@ -5,6 +5,7 @@ import LoginSignInButtons  from '../../components/btnForm/BtnForm'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { AuthResponse, login} from '../../services/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -24,29 +25,36 @@ type FormFieldsLogin = {
 
 const LoginForm: React.FC<LoginFormProps> = ({ onGoToSignup }) => {
 
+    const navigate = useNavigate()
+
     const {
         register, // Función para registrar los inputs
         handleSubmit, // Función para manejar el envío del formulario   
         formState: { errors, isSubmitting }, // Estado del formulario (errores, si está enviando, etc.)
         setError,  // Muestra errores del servidor
-    } = useForm<FormFieldsLogin>();
+    } = useForm<FormFieldsLogin>({mode: 'onBlur'}); // 'onBlur' Para validar cuando el campo pierde el foco
 
     const onSubmit: SubmitHandler<FormFieldsLogin> = async (data) => {
+
         console.log('Datos del formulario de login:', data);
         try {
             const response: AuthResponse = await login(data)
             alert(`Login exitoso para: ${response.user?.username}. Token: ${response.token}`);
-            // Aquí podrías, por ejemplo, guardar el token en localStorage y redirigir al usuario
-            // localStorage.setItem('authToken', response.token || '');
-            // navigate('/dashboard'); // Necesitarías importar useNavigate de react-router-dom
+
+            if (response.token) {
+                localStorage.setItem('authToken', response.token);
+                console.log('Token almacenado en localStorage: ', response.token)
+                navigate('/')
+            }
+        
         } catch (error: any) {
-            console.error('Error en el login mock:', error);
-            const errorMessage = error?.message || 'Ocurrió un error desconocido.';
+            console.error('Error en el login desde el componente:', error);
+
+            const errorMessage = error?.message || 'Ocurrió un error desconocido durante el login.';
             alert(`Error de login: ${errorMessage}`);
-            // Opcional: mostrar errores específicos del campo si el API los devolviera así
-            // setError('username', { type: 'server', message: 'Usuario o contraseña incorrectos' });
-            // setError('password', { type: 'server', message: 'Usuario o contraseña incorrectos' });
-            setError('root.serverError', { type: 'custom', message: errorMessage }); // Error general
+            
+            // Usamos setError de react-hook-form para mostrar un error general del formulario
+            setError('root.serverError', { type: 'custom', message: errorMessage }); // 'root.serverError' es un nombre que elegimos
         }
      
     }
@@ -59,6 +67,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onGoToSignup }) => {
         <form className={styles.loginBox}  onSubmit={handleSubmit(onSubmit)}> 
 
             <h1>Login</h1> 
+
+            {/* Mostrar el error general del servidor si existe */}
+            {errors.root?.serverError && (
+                <p className={styles.errorMessage}>{errors.root.serverError.message}</p>
+            )}
 
             <CampoForm 
                 label="USUARIO"
