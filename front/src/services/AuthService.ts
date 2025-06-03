@@ -27,11 +27,6 @@ export interface AuthResponse {
     token?: string
 }
 
-export interface RegisterResponse extends AuthResponse {
-    // mail: string
-
-}
-
 const API_BASE_URL = 'http://localhost:8000/api'
 
 
@@ -117,39 +112,72 @@ export interface SignupCredentials extends AuthCredentials {
 }
 
 
+// Interfaz para la respuesta específica que esperamos del endpoint de registro de Django
+export interface DjangoUserRegistered {
+    id: string; // o string, dependiendo de tu ID de usuario en Django
+    email: string;
+    username: string;
+    first_name: string;
+    last_name: string;
+    role: string;
+    date_joined: string; // Django devuelve fechas como strings ISO
+}
+
+export interface SignupResponse extends AuthResponse { // Extendemos AuthResponse para mantener consistencia
+    user?: DjangoUserRegistered; // El usuario devuelto por Django al registrarse
+}
+
+
 // La función signup original de tu AuthService.ts mockeada
-export const signup = (credentials: SignupCredentials): Promise<RegisterResponse> => {
-    console.warn('[AuthService] La función signup aún está mockeada y no conectada al backend.');
-    // Aquí iría la lógica para llamar a tu endpoint POST /api/users/ en Django
-    // usando axios.post(`${API_BASE_URL}/users/`, credentials)
-    // y manejando la respuesta y errores de forma similar a login.
+export const signup = async (credentials: SignupCredentials & { password2 : string }): Promise<SignupResponse> => {
 
-    // Por ahora, mantenemos la simulación:
-    const mockUsersUsernames = ["Jondam", "kathy", "testuser", "admin"]; // Simula usuarios existentes
+    const payload = {
+        email: credentials.email, 
+        username: credentials.username,
+        password: credentials.password,
+        password2: credentials.password2,
+        first_name: credentials.first_name || '',
+        last_name: credentials.last_name || '',
+     
+    }
 
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (mockUsersUsernames.includes(credentials.username)) {
-                console.error(`[AuthService Mock] Registro fallido: el usuario ${credentials.username} ya existe.`);
-                reject({
-                    success: false,
-                    message: `El nombre de usuario "${credentials.username}" ya está en uso.`,
-                });
-            } else {
-                const newUser: UserData = { // Usamos UserData para consistencia, aunque el token no se usa aquí
-                    id: String(Date.now()), // ID simple
-                    username: credentials.username,
-                    email: credentials.email,
-                    token: `fake-jwt-token-${credentials.username}`, // Token simulado, aunque el registro real no devuelve token
-                };
-                console.log(`[AuthService Mock] Registro exitoso para ${credentials.username}`);
-                resolve({
-                    success: true,
-                    user: { username: newUser.username, email: newUser.email, id: newUser.id },
-                    message: '¡Registro exitoso! Ahora puedes iniciar sesión.',
-                    // 'mail' no está en RegisterResponse, 'email' está en 'user' o en SignupCredentials
-                });
+    try {
+        const response = await axios.post<DjangoUserRegistered>(`${API_BASE_URL}/users/`, payload)
+        // Si la petición es exitosa (status 201 Created)
+        console.log('[AuthService] Registro exitoso:', response.data);
+        return {
+            success: true,
+            message: '¡Registro exitoso! Ahora puedes iniciar sesión.',
+            user: response.data, // El usuario creado devuelto por Django
+
+        }
+
+    } catch (error: any) {
+        console.error('[AuthService] Error en el registro:', error.response?.data || error.message);
+        let errorMessage = 'Ocurrió un error durante el registro.';
+        
+        if (axios.isAxiosError(error) && error.response && error.response.data) {
+            // DRF devuelve errores de validación como un objeto donde las claves son los nombres de los campos
+            // Ej: { "username": ["A user with that username already exists."], "email": ["Enter a valid email address."] }
+            const errorData = error.response.data;
+            const fieldErrors: string[] = [];
+            for (const field in errorData) {
+                if (Array.isArray(errorData[field])) {
+                    fieldErrors.push(`${field}: ${errorData[field].join(' ')}`);
+                }
             }
-        }, NETWORK_DELAY);
-    });
-};
+            if (fieldErrors.length > 0) {
+                errorMessage = fieldErrors.join('; ');
+            } else if (errorData.detail) { // Para errores generales como el de `obtain_auth_token`
+                 errorMessage = errorData.detail;
+            }
+        }
+        return Promise.reject({
+            success: false,
+            message: errorMessage,
+        })
+    }
+
+    
+
+}
