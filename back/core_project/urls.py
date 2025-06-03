@@ -24,5 +24,5 @@ urlpatterns = [
 
     # Así, la URL completa para tu UserListCreateView será '/api/users/'.
     path('api/', include('users.urls')),
-    path('api/auth/token/', authtoken_views.obtail_auth_token, name='api_auth_token')
+    path('api/auth/token/', authtoken_views.obtain_auth_token, name='api_auth_token')
 ]

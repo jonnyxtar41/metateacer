@@ -52,7 +52,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onGoToSignup }) => {
 
             const errorMessage = error?.message || 'Ocurrió un error desconocido durante el login.';
             alert(`Error de login: ${errorMessage}`);
-            
+                                                            
             // Usamos setError de react-hook-form para mostrar un error general del formulario
             setError('root.serverError', { type: 'custom', message: errorMessage }); // 'root.serverError' es un nombre que elegimos
         }
